@@ -7,7 +7,58 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
+const dog = {
+	species: "dog",
+	name: "Bim",
+	gender: "male",
+	legs: 4,
+	hands: 0,
+	talk: "woof!"
+};
 
+const cat = {
+	species: "cat",
+	name: "Tom",
+	gender: "male",
+	legs: 4,
+	hands: 0,
+	talk: "meow!"
+};
+
+const man = {
+	species: "human",
+	name: "Jack",
+	gender: "male",
+	legs: 2,
+	hands: 2,
+	talk: "Captain Jack Sparrow!"
+};
+
+const woman = {
+	species: "human",
+	name: "Elizabeth",
+	gender: "female",
+	legs: 2,
+	hands: 2,
+	talk: "He's A Pirate."
+};
+
+const catwoman = {
+	species: "human",
+	name: "Lisa",
+	gender: "female",
+	legs: 2,
+	hands: 2	
+};
+
+catwoman.talk = cat.talk;
+
+const inhabitants = [dog, cat, man, woman, catwoman];
+const properties = ["species", "name", "gender", "legs", "hands", "talk"];
+
+const inhabitantsDescr = inhabitants.map((inhabitan) => properties.map(property => inhabitan[property]));
+
+inhabitantsDescr.map((resident) => print(resident.join("; ")));
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
