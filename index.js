@@ -7,53 +7,40 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-const dog = {
-	species: "dog",
-	name: "Bim",
-	gender: "male",
-	legs: 4,
-	hands: 0,
-	talk: "woof!"
-};
+class Inhabitants {
+	constructor(species, name, legs, gender, talk) {
+		this. species = species;
+		this.name = name;
+		this. legs = legs;
+		this.gender = gender;
+		this.talk = talk;
+	}
+}
 
-const cat = {
-	species: "cat",
-	name: "Tom",
-	gender: "male",
-	legs: 4,
-	hands: 0,
-	talk: "meow!"
-};
+class Dog extends Inhabitants {
+	constructor (name, gender, talk) {
+		super('dog', name, 4, gender, talk);
+	}
+}
 
-const man = {
-	species: "human",
-	name: "Jack",
-	gender: "male",
-	legs: 2,
-	hands: 2,
-	talk: "Captain Jack Sparrow!"
-};
+class Cat extends Inhabitants {
+	constructor(name, gender, talk) {
+		super('cat', name, 4, gender, talk);
+	}
+}
 
-const woman = {
-	species: "human",
-	name: "Elizabeth",
-	gender: "female",
-	legs: 2,
-	hands: 2,
-	talk: "He's A Pirate."
-};
+class Human extends Inhabitants {
+	constructor(name, gender, talk,) {
+		super('human', name, 2, gender, talk);
+		this.hands = 2;
+	}
+}
 
-const catwoman = {
-	species: "human",
-	name: "Lisa",
-	gender: "female",
-	legs: 2,
-	hands: 2	
-};
-
-catwoman.talk = cat.talk;
-
-const inhabitants = [dog, cat, man, woman, catwoman];
+const dog = new Dog('Bim', 'male', 'woof!');
+const cat = new Cat('Tom', 'male', "meow!");
+const man = new Human('Jack', 'male', "Captain Jack Sparrow!");
+const woman = new Human('Elizabeth', 'female', "He's A Pirate.");
+const inhabitants = [dog, cat, man, woman];
 const properties = ["species", "name", "gender", "legs", "hands", "talk"];
 
 const inhabitantsDescr = inhabitants.map((inhabitan) => properties.map(property => inhabitan[property]));
