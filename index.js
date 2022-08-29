@@ -15,6 +15,12 @@ class Inhabitants {
 		this.gender = gender;
 		this.talk = talk;
 	}
+
+	inhabitantsDescr() {
+		return ["species", "name", "gender", "legs", "talk"]		       
+           .map(property => this[property])
+           .join("; ");
+	}
 }
 
 class Dog extends Inhabitants {
@@ -34,6 +40,10 @@ class Human extends Inhabitants {
 		super('human', name, 2, gender, talk);
 		this.hands = 2;
 	}
+
+  inhabitantsDescr() {
+    return `${super.inhabitantsDescr()}; ${this.hands}`;
+  }
 }
 
 const dog = new Dog('Bim', 'male', 'woof!');
@@ -41,11 +51,9 @@ const cat = new Cat('Tom', 'male', "meow!");
 const man = new Human('Jack', 'male', "Captain Jack Sparrow!");
 const woman = new Human('Elizabeth', 'female', "He's A Pirate.");
 const inhabitants = [dog, cat, man, woman];
-const properties = ["species", "name", "gender", "legs", "hands", "talk"];
 
-const inhabitantsDescr = inhabitants.map((inhabitan) => properties.map(property => inhabitan[property]));
 
-inhabitantsDescr.map((resident) => print(resident.join("; ")));
+inhabitants.forEach((resident) => print(resident.inhabitantsDescr()));
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
